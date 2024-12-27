@@ -13,7 +13,7 @@ const deposit = () => {
     const numberDepositAmount = parseFloat(depositAmount);
     // to prevent user from entering invalid no.
     if(isNaN(numberDepositAmount) || numberDepositAmount <= 0){
-        console.log("Invalid number");   
+        console.log("Invalid deposit");   
     }
 }
 deposit();
