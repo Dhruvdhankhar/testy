@@ -39,6 +39,25 @@ const getNumberOfLine = () => {
 }
 }
 
-const depositAmount = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
-const line = getNumberOfLine();
+//3. func to collect he bet amount
+
+const getBetAmount = (balance , numberOfLines) => {  // (parameters)=> is the function is required other func parameters
+    while(true){ 
+    const betAmount = promt("Enter the amount of bet per line: ");
+    const numberBetAmount = parseFloat(betAmount); 
+    
+    if(isNaN(numberBetAmount) || numberBetAmount <= 0 || numberBetAmount > (balance / numberOfLines)){
+        console.log("Invalid Bet Amount");   
+    }
+    else {
+        return numberBetAmount; 
+    } 
+}
+}
+  
+// 4. func to spin the slot mac
+
+let balance = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
+const numberOfLines = getNumberOfLine();
+const betAmount = getBetAmount(balance , numberOfLines); // bet is on number of line, for $50 balance, and no. of line to bet is 2 then max 25 can be bet on each line(balance/lines)
 
