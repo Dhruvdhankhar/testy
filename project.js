@@ -8,6 +8,7 @@
 
 const promt = require("prompt-sync")(); // () because 'require("prompt-sync")' returns a function not object promt
 
+//1. func for deposit
 const deposit = () => {
     while(true){ // this is a loop, after entering invalid deposit func doesn't end and ask until valid deposit
     const depositAmount = promt("Enter the amount: ");
@@ -21,4 +22,24 @@ const deposit = () => {
     } 
 }
 }
-deposit();
+
+//2. func to select no. of line to bet on (1-3)
+
+const getNumberOfLine = () => {
+    while(true){ 
+    const line = promt("Enter the no. of line to bet on (1-3): ");
+    const numberOfLines = parseFloat(line); 
+    
+    if(isNaN(numberOfLines) || numberOfLines <= 0 || numberOfLines > 3){
+        console.log("Invalid number");   
+    }
+    else {
+        return numberOfLines; 
+    } 
+}
+}
+
+const depositAmount = deposit();
+const line = getNumberOfLine();
+console.log(line);
+
