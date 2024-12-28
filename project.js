@@ -14,17 +14,17 @@ const promt = require("prompt-sync")(); // () because 'require("prompt-sync")' r
 const ROWS = 3; // typical practice to name global varibale in capital
 const COLOUMS = 3;
 
-const SYMBOL_COUNT = {          // SYMBOL COUNT in the slot, there are 8D's in the slot, fact, there are only 2 A in 3x3 slot so never happening
-    "A" : 2,         
-    "B" : 4,
-    "C" : 6,
-    "D" : 8,
+const SYMBOL_COUNT = {          // SYMBOL COUNT in the a ROW
+    A : 2,         
+    B : 4,
+    C : 6,
+    D : 8,
 }
 const SYMBOL_VALUE = {
-    "A" : 5,         //multipier, if get A then 5x, B then 4x
-    "B" : 4,
-    "C" : 3,
-    "D" : 2,
+    A : 5,         //multipier, if get A then 5x, B then 4x
+    B : 4,
+    C : 3,
+    D : 2,
 }
 
 //1. func for deposit
@@ -77,10 +77,18 @@ const getBetAmount = (balance , numberOfLines) => {  // (parameters)=> is the fu
 // 4. func to spin the slot mac
 
 const spin = ()=> {
-   
-}
+   const symbols = [];
+   for(const[symbol , count] of Object.entries(SYMBOL_COUNT)){
+    for(let i = 0; i < count; i++){
+        symbols.push(symbol)
+    }
+   }                               // point of doing this is that we can now call a random array from func spin 
 
-let balance = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
-const numberOfLines = getNumberOfLine();
-const betAmount = getBetAmount(balance , numberOfLines); // bet is on number of line, for $50 balance, and no. of line to bet is 2 then max 25 can be bet on each line(balance/lines)
+   const reel = [[], [], []]  // nested array is a coloum
+};  
+
+
+//let balance = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
+//const numberOfLines = getNumberOfLine();
+//const betAmount = getBetAmount(balance , numberOfLines); // bet is on number of line, for $50 balance, and no. of line to bet is 2 then max 25 can be bet on each line(balance/lines)
 
