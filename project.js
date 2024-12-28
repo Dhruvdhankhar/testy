@@ -76,7 +76,7 @@ const getBetAmount = (balance , numberOfLines) => {  // (parameters)=> is the fu
   
 // 4. func to spin the slot mac
 
-const spin = ()=> {
+const spin = ()=> {                  // picking all the arrays in a reel
    const symbols = [];
    for(const[symbol , count] of Object.entries(SYMBOL_COUNT)){
     for(let i = 0; i < count; i++){
@@ -85,10 +85,22 @@ const spin = ()=> {
    }                               // point of doing this is that we can now call a random array from func spin 
 
    const reel = [[], [], []]  // nested array is a coloum
+   for(let i = 0; i<COLOUMS; i++){   // started the loop to fill each colom 1 by 1, with all the array from spin();
+    //reel.push([]);  use if there are more or less coloum/ nested array require in reel
+    const newSymbol = [...symbols]   // copy from symbols[], because for each reel we have to delete a array which is used but not for other coloum
+    for(let j=0; j<ROWS; j++){           
+        const randomIndex = Math.floor(Math.random() * newSymbol.length)
+        const selectedSymbol = newSymbol[randomIndex]
+        reel[i].push(selectedSymbol);        // array get pushed at i'th position into reel from selectedSymbol
+        newSymbol.splice(randomIndex , 1);     // delete the selected symbol.
+    }
+   }
+console.log(reel);
 };  
 
+//5. check if user win
 
-//let balance = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
-//const numberOfLines = getNumberOfLine();
-//const betAmount = getBetAmount(balance , numberOfLines); // bet is on number of line, for $50 balance, and no. of line to bet is 2 then max 25 can be bet on each line(balance/lines)
-
+let balance = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
+const numberOfLines = getNumberOfLine();
+const betAmount = getBetAmount(balance , numberOfLines); // bet is on number of line, for $50 balance, and no. of line to bet is 2 then max 25 can be bet on each line(balance/lines)
+const reel = spin();
