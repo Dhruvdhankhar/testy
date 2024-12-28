@@ -39,7 +39,6 @@ const getNumberOfLine = () => {
 }
 }
 
-const depositAmount = deposit();
+const depositAmount = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
 const line = getNumberOfLine();
-console.log(line);
 
