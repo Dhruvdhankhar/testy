@@ -9,11 +9,16 @@
 const promt = require("prompt-sync")(); // () because 'require("prompt-sync")' returns a function not object promt
 
 const deposit = () => {
+    while(true){ // this is a loop, after entering invalid deposit func doesn't end and ask until valid deposit
     const depositAmount = promt("Enter the amount: ");
-    const numberDepositAmount = parseFloat(depositAmount);
+    const numberDepositAmount = parseFloat(depositAmount); // parseFloat converts sting into floating point number(as it is)
     // to prevent user from entering invalid no.
     if(isNaN(numberDepositAmount) || numberDepositAmount <= 0){
         console.log("Invalid deposit");   
     }
+    else {
+        return numberDepositAmount; 
+    } 
+}
 }
 deposit();
