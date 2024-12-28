@@ -7,6 +7,25 @@
 // 7. play again
 
 const promt = require("prompt-sync")(); // () because 'require("prompt-sync")' returns a function not object promt
+// first libraries on top --> global variables --> classes and function --> mainline or other aspects of code
+
+//global variables
+
+const ROWS = 3; // typical practice to name global varibale in capital
+const COLOUMS = 3;
+
+const SYMBOL_COUNT = {          // SYMBOL COUNT in the slot, there are 8D's in the slot, fact, there are only 2 A in 3x3 slot so never happening
+    "A" : 2,         
+    "B" : 4,
+    "C" : 6,
+    "D" : 8,
+}
+const SYMBOL_VALUE = {
+    "A" : 5,         //multipier, if get A then 5x, B then 4x
+    "B" : 4,
+    "C" : 3,
+    "D" : 2,
+}
 
 //1. func for deposit
 const deposit = () => {
@@ -56,6 +75,10 @@ const getBetAmount = (balance , numberOfLines) => {  // (parameters)=> is the fu
 }
   
 // 4. func to spin the slot mac
+
+const spin = ()=> {
+   
+}
 
 let balance = deposit();  // is doesn't matter the sequence in which i write code it matter how i called this function.
 const numberOfLines = getNumberOfLine();
