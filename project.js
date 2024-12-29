@@ -79,3 +79,13 @@ const deposit = () => {
   // const numberOfLines = getNumberOfLines();
   // const bet = getBet(balance, numberOfLines);
   // console.log(`You have deposited ${balance}, betting on ${numberOfLines} lines with a bet of ${bet} per line.`);
+
+
+  const spin = () => {
+    const symbols = [];   // An empty array is created to hold all the symbols.
+    for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) { //iterates over each symbol and its count from the SYMBOLS_COUNT object.
+      for (let i = 0; i < count; i++) {
+        symbols.push(symbol);  //// It pushes each symbol into the symbols array according to its count.
+      }
+    }  
+    // For example, if A has a count of 2, A will be pushed twice into the symbols array.
