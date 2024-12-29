@@ -134,3 +134,26 @@ const transpose = (reels) => {
       console.log(rowString);
     }
   };
+
+
+  const getWinnings = (rows, bet, lines) => {
+    let winnings = 0;  // A variable winnings is initialized to 0. This will keep track of the total winnings.
+  
+    for (let row = 0; row < lines; row++) {  //The outer loop runs for each row up to the number of lines.
+      const symbols = rows[row];  // The symbols in the current row are stored in the symbols array.
+      let allSame = true;  //to check if all symbols in the row are the same.
+  
+      for (const symbol of symbols) {  //The for...of loop iterates over each symbol in the symbols array.
+        if (symbol != symbols[0]) {
+          allSame = false;
+          break;  //If the current symbol is not the same as the first symbol in the row, allSame is set to false and the loop breaks.
+        }
+      }
+  
+      if (allSame) {
+        winnings += bet * SYMBOL_VALUES[symbols[0]];
+      }
+    } // if still true The winnings are increased by the bet amount multiplied by the value of the symbol (using the SYMBOL_VALUES object).
+  
+    return winnings;
+  };
