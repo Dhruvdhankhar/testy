@@ -184,3 +184,5 @@ const transpose = (reels) => {
         if (playAgain != "y") break;
       }
     };
+
+    game();
