@@ -161,3 +161,28 @@ const transpose = (reels) => {
 
   const game = () => {
     let balance = deposit();
+    
+    while (true) {
+        console.log("You have a balance of $" + balance);
+        const numberOfLines = getNumberOfLines();
+        const bet = getBet(balance, numberOfLines);
+        balance -= bet * numberOfLines;  // The total bet amount (bet per line multiplied by the number of lines) is subtracted from the user's balance.
+        const reels = spin();
+        const rows = transpose(reels);
+        printRows(rows);
+        const winnings = getWinnings(rows, bet, numberOfLines);
+        balance += winnings; // The user's balance is increased by the amount of their winnings.
+        console.log("You won, $" + winnings.toString());
+    
+        if (balance <= 0) {
+          console.log("You ran out of money!");
+          break;
+        }
+    
+        const playAgain = prompt("Do you want to play again (y/n)? ");
+    
+        if (playAgain != "y") break;
+      }
+    };
+    
+    game();
