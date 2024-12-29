@@ -29,3 +29,18 @@ const SYMBOL_VALUES = {
   D: 2,
 };
 //This object defines the value of each symbol. For example, symbol A is worth 5 units.
+
+
+const deposit = () => {
+    while (true) {
+      const depositAmount = prompt("Enter a deposit amount: ");
+      const numberDepositAmount = parseFloat(depositAmount);     //parseFloat(depositAmount): This converts the input string into a floating-point number.
+  // This function prompts the user to enter a deposit amount. It uses a while (true) loop to keep asking for input until a valid amount is entered.
+  
+      if (isNaN(numberDepositAmount) || numberDepositAmount <= 0) {
+        console.log("Invalid deposit amount, try again.");
+      } else {
+        return numberDepositAmount;
+      }
+    }
+  };
