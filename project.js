@@ -161,7 +161,7 @@ const transpose = (reels) => {
 
   const game = () => {
     let balance = deposit();
-    
+
     while (true) {
         console.log("You have a balance of $" + balance);
         const numberOfLines = getNumberOfLines();
@@ -184,5 +184,3 @@ const transpose = (reels) => {
         if (playAgain != "y") break;
       }
     };
-    
-    game();
