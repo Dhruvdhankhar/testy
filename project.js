@@ -89,3 +89,18 @@ const deposit = () => {
       }
     }  
     // For example, if A has a count of 2, A will be pushed twice into the symbols array.
+
+    const reels = [];
+  for (let i = 0; i < COLS; i++) {  // The outer loop runs for each column (COLS).
+    reels.push([]);  // An empty array is pushed into reels for each column.
+    const reelSymbols = [...symbols];  //  A copy of the symbols array is made and stored in reelSymbols.
+    for (let j = 0; j < ROWS; j++) {  // The inner loop runs for each row (ROWS):
+      const randomIndex = Math.floor(Math.random() * reelSymbols.length);
+      const selectedSymbol = reelSymbols[randomIndex];  //The symbol at the random index is selected.
+      reels[i].push(selectedSymbol);  //The selected symbol is pushed into the current reel.
+      reelSymbols.splice(randomIndex, 1);  //The selected symbol is removed from reelSymbols to avoid duplicates in the same reel.
+    }
+  }
+
+  return reels;
+};
