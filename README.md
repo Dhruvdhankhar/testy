@@ -2,7 +2,7 @@
 
 ## 🛠 Play Locally
 
-**Prerequisite:** - Node.js Installed
+**Prerequisite:** - Node.js
 1. **Clone the project**
 
 ```bash
