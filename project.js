@@ -104,3 +104,17 @@ const deposit = () => {
 
   return reels;
 };
+
+
+const transpose = (reels) => {
+    const rows = [];
+  
+    for (let i = 0; i < ROWS; i++) {
+      rows.push([]);
+      for (let j = 0; j < COLS; j++) {
+        rows[i].push(reels[j][i]); //The symbol at position [j][i] in reels is pushed into the current row in rows. This effectively transposes the columns into rows
+      }
+    }
+  
+    return rows;
+  };
