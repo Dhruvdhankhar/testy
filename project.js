@@ -118,3 +118,19 @@ const transpose = (reels) => {
   
     return rows;
   };
+
+
+
+  const printRows = (rows) => {
+    for (const row of rows) {   // A for...of loop iterates over each row in the rows array.
+     //  This loop goes through each row one by one.
+      let rowString = "";  // An empty string rowString is created to build the string representation of the current row.
+      for (const [i, symbol] of row.entries()) {  //row.entries() provides both the index and the symbol for each element in the row.
+        rowString += symbol;  // This adds the current symbol to the string.
+        if (i != row.length - 1) {
+          rowString += " | ";
+        }  // This adds a separator between symbols, but only if it's not the last symbol in the row.
+      }
+      console.log(rowString);
+    }
+  };
