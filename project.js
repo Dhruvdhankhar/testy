@@ -157,3 +157,7 @@ const transpose = (reels) => {
   
     return winnings;
   };
+
+
+  const game = () => {
+    let balance = deposit();
